@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Dharik Ajees, a passionate Data Analyst specializing in Power BI, Python, SQL, and AI tools">
+  <meta name="keywords" content="data analyst, Power BI, Python, SQL, portfolio">
+  <meta name="author" content="Dharik Ajees">
+  <title>Dharik Ajees - Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+
+    nav {
+      background: #1a1a1a;
+      padding: 15px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff8c00;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff8c00 0%, #ff4d4d 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s ease forwards;
+      animation-delay: 0.2s;
+    }
+
+    .section h2 {
+      color: #ff8c00;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .skill-btn, .card {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .skill-btn:hover, .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-content p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5em;
+      cursor: pointer;
+      color: #ff8c00;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 20px;
+      margin: 20px 0;
+    }
+
+    .contact a {
+      color: #ff8c00;
+      text-decoration: none;
+      font-size: 1.1em;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #e67e22;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #1a1a1a;
+      color: #fff;
+      margin-top: 50px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff8c00;
+      color: #fff;
+      padding: 10px 15px;
+      border-radius: 50%;
+      text-decoration: none;
+      font-size: 1.2em;
+      display: none;
+      transition: background 0.3s;
+    }
+
+    .back-to-top:hover {
+      background: #e67e22;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
+      .section h2 {
+        font-size: 2em;
+      }
+
+      .skills, .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-btn, .card {
+        font-size: 1em;
+        padding: 20px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header id="home">
+    <h1>Dharik Ajees</h1>
+    <p>
+      Passionate Data Analyst transforming raw data into actionable insights using Power BI, Python, SQL, and AI tools.<br>
+      Dedicated to creating impactful dashboards and driving data-informed decisions.
+    </p>
+  </header>
+
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-btn" onclick="showModal('powerbi')">Power BI</div>
+      <div class="skill-btn" onclick="showModal('python')">Python</div>
+      <div class="skill-btn" onclick="showModal('sql')">SQL</div>
+      <div class="skill-btn" onclick="showModal('excel')">Excel</div>
+      <div class="skill-btn" onclick="showModal('aitools')">AI Tools</div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <strong>Sales Dashboard</strong><br>
+        Developed an interactive Power BI dashboard to monitor KPIs, sales trends, and regional performance.<br>
+        <a href="https://github.com/DharikAjees501/sales-dashboard" target="_blank">View Code</a>
+      </div>
+      <div class="card">
+        <strong>Customer Segmentation</strong><br>
+        Applied K-means clustering in Python to segment customers based on purchasing behavior.<br>
+        <a href="https://github.com/DharikAjees501/customer-segmentation" target="_blank">View Code</a>
+      </div>
+      <div class="card">
+        <strong>SQL Reporting Automation</strong><br>
+        Automated weekly report generation using SQL queries and Excel VBA.<br>
+        <a href="https://github.com/DharikAjees501/sql-automation" target="_blank">View Code</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="contact" id="contact">
+    <a href="tel:+918838994048" aria-label="Phone number">📞 +91 8838994048</a>
+    <a href="mailto:dharikdharik501@gmail.com" aria-label="Email address">📧 dharikdharik501@gmail.com</a>
+    <a href="https://linkedin.com/in/your-linkedin-profile" target="_blank" aria-label="LinkedIn profile">🔗 LinkedIn</a>
+    <a href="https://github.com/DharikAjees501" target="_blank" aria-label="GitHub profile">🔗 GitHub</a>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Dharik Ajees | Data Analyst Portfolio
+  </footer>
+
+  <a href="#home" class="back-to-top" id="backToTop">↑</a>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <p id="modal-text"></p>
+    </div>
+  </div>
+
+  <script>
+    // Dynamic footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal functionality
+    const abstracts = {
+      powerbi: "Create interactive dashboards to visualize KPIs and trends. Proficient in DAX and data modeling.",
+      python: "Use Pandas, Matplotlib, and Seaborn for data analysis and visualization. Skilled in machine learning with Scikit-learn.",
+      sql: "Write complex queries for data extraction and reporting. Experienced with MySQL and PostgreSQL.",
+      excel: "Develop advanced Pivot Tables, VBA macros, and charts. Automate repetitive tasks for efficiency.",
+      aitools: "Leverage ChatGPT and Azure AI for predictive analytics. Proficient in AutoML for model building."
+    };
+
+    function showModal(skill) {
+      const modal = document.getElementById('modal');
+      const modalText = document.getElementById('modal-text');
+      modalText.textContent = abstracts[skill];
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('modal');
+      if (event.target === modal) {
+        closeModal();
+      }
+    };
+
+    // Show/hide back-to-top button
+    window.onscroll = function() {
+      const backToTop = document.getElementById('backToTop');
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    };
+  </script>
+</body>
+  </html>
